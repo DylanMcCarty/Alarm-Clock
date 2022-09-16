@@ -35,16 +35,12 @@ function updateTime() {
 }
 
 function updateYear() {
-    const date = new Date(); 
+    const date = new Date();
 
     let day = date.getUTCDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     display2.innerText = `${month} / ${day} / ${year}`
-    
-    if (month < 10){
-        month = "0" + month;
-    }
 }
 
 setInterval(updateYear)
