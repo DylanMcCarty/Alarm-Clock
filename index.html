@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>Alarm Clock</title>
+</head>
+<body>
+    <section class="container">
+        <div id="DMY"></div>
+        <div id="clock"></div>
+        <input onchange="setAlarmTime(this.value)" name="alarmtime" type="datetime-local"> <!--STRETCH GOAL this shows a date time input drop down menu-->
+        <div class="controls">
+            <button onclick="setAlarm()" class="buttonset-alarm">Set Alarm</button>
+            <button onclick="clearAlarm()" class="buttonclear-alarm">Clear Alarm</button>
+        </div>
+    </section>
+    <script src="main.js"></script>
+</body>
+</html>
