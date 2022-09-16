@@ -8,7 +8,7 @@ let alarmTimeout = null;
 function updateTime() {
     const date = new Date();
 
-    let hour = date.getHours();
+    let hour = date.getHours(); // these were all let statements so that they could be changed to suit the 12 hour clock
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
     let session = "AM"
@@ -19,7 +19,10 @@ function updateTime() {
     if(hour > 12){
         session = "PM";
      }
-    if(hour < 10){
+    if(hour > 12){
+        hour = hour - 12
+    }
+     if(hour < 10){
         hour = "0" + hour
     }
     if(minutes < 10){
@@ -27,8 +30,7 @@ function updateTime() {
     }
     if(seconds < 10){
         seconds = "0" + seconds
-    } 
-
+    }    
     display.innerText = `${hour} : ${minutes} : ${seconds}  ${session}`
 }
 /*
