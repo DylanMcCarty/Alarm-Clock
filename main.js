@@ -1,5 +1,5 @@
 const display = document.getElementById('clock'); //This is what tells the code where to put the time which is determined by the javascript
-const display2 = document.getElementById('DMY');
+const display2 = document.getElementById('DMY');// this would tell the code where to put the date but, it dont work.
 
 let alarmTime = null;
 let alarmTimeout = null;
@@ -8,14 +8,32 @@ let alarmTimeout = null;
 function updateTime() {
     const date = new Date();
 
-    const hour = date.getHours();
-    const minutes = date.getMinutes();
-    const seconds = date.getSeconds();
-    display.innerText = `${hour} : ${minutes} : ${seconds}`
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+    let session = "AM"
+
+    if(hour === 0){
+        hour = 12;
+    }
+    if(hour > 12){
+        session = "PM";
+     }
+    if(hour < 10){
+        hour = "0" + hour
+    }
+    if(minutes < 10){
+        minutes = "0" + minutes
+    }
+    if(seconds < 10){
+        seconds = "0" + seconds
+    } 
+
+    display.innerText = `${hour} : ${minutes} : ${seconds}  ${session}`
 }
 /*
 function updateYear() {
-    const date = new Date(2022, 16, 9); //cant get this stupid shit working. 
+    const date = new Date(2022, 16, 9); cant get this stupid shit working. 
 
     const day = date.getDay();
     const month = date.getMonth();
@@ -34,7 +52,7 @@ function setAlarm() {
     if (alarmTime) {
         const current = new Date();
         const timeToAlarm = new Date(alarmTime);
-        //this makes sure the alarm must be after the current time before the alarm is set
+        //this makes sure the alarm must be after the current time before the alarm is set and sets the time before the audio will play
         if (timeToAlarm > current) {
             const timeout = timeToAlarm.getTime() - current.getTime();
             alarmTimeout = setTimeout(() => audio.play(), timeout);
