@@ -4,33 +4,33 @@ const display2 = document.getElementById('DMY');// this would tell the code wher
 let alarmTime = null;
 let alarmTimeout = null;
 
-// this all obtains the time and puts the separate hours minutes and seconds in their proper place
+// this all obtains the time and puts the separate hours minutes and seconds in their proper place as well as defining a whole other bunch of junk
 function updateTime() {
     const date = new Date();
 
-    let hour = date.getHours(); // these were all let statements so that they could be changed to suit the 12 hour clock
+    let hour = date.getHours(); // these were all let statements so that they could be changed to suit the 12 hour clock const variables dont ever change and are immovable
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
     let session = "AM"
-
-    if(hour === 0){
+   //ALL THE IF STATEMENTS I DONT CARE!!!!
+    if (hour === 0) {
         hour = 12;
     }
-    if(hour > 12){
+    if (hour > 12) {
         session = "PM";
-     }
-    if(hour > 12){
+    }
+    if (hour > 12) {
         hour = hour - 12
     }
-     if(hour < 10){
+    if (hour < 10) {
         hour = "0" + hour
     }
-    if(minutes < 10){
+    if (minutes < 10) {
         minutes = "0" + minutes
     }
-    if(seconds < 10){
+    if (seconds < 10) {
         seconds = "0" + seconds
-    }    
+    }
     display.innerText = `${hour} : ${minutes} : ${seconds}  ${session}`
 }
 /*
