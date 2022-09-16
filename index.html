@@ -10,12 +10,12 @@
     <title>Alarm Clock</title>
 </head>
 <body>
-    <section class="container">
+    <section class="container"><!--This is what contains the content of the website so that it can all be targeted in css-->
         <div id="DMY"></div>
-        <div id="clock"></div>
-        <input onchange="setAlarmTime(this.value)" name="alarmtime" type="time"> <!--STRETCH GOAL this shows a date time input drop down menu-->
+        <div id="clock"></div> <!--these divs are targeted in js with the id tags so that js knows where to put the code so it can be targeted in css-->
+        <input onchange="setAlarmTime(this.value)" name="alarmtime" type="datetime-local"> <!--STRETCH GOAL this shows a date time input drop down menu-->
         <div class="controls">
-            <button onclick="setAlarm()" class="buttonset-alarm">Set Alarm</button>
+            <button onclick="setAlarm()" class="buttonset-alarm">Set Alarm</button> <!--the on click tag makes it so that it will trigger that function when clicked-->
             <button onclick="clearAlarm()" class="buttonclear-alarm">Clear Alarm</button>
         </div>
     </section>

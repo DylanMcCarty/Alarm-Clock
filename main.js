@@ -8,11 +8,11 @@ let alarmTimeout = null;
 function updateTime() {
     const date = new Date();
 
-    let hour = date.getHours(); // these were all let statements so that they could be changed to suit the 12 hour clock const variables dont ever change and are immovable
+    let hour = date.getHours(); // these were all let statements so that they could be changed to suit the 12 hour clock. const variables dont ever change and are immovable
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
     let session = "AM"
-   //ALL THE IF STATEMENTS I DONT CARE!!!!
+    //ALL THE IF STATEMENTS I DONT CARE!!!!
     if (hour === 0) {
         hour = 12;
     }
@@ -31,20 +31,24 @@ function updateTime() {
     if (seconds < 10) {
         seconds = "0" + seconds
     }
-    display.innerText = `${hour} : ${minutes} : ${seconds}  ${session}`
+    display.innerText = `${hour} : ${minutes} : ${seconds} ${session}`
 }
-/*
-function updateYear() {
-    const date = new Date(2022, 16, 9); cant get this stupid shit working. 
 
-    const day = date.getDay();
-    const month = date.getMonth();
-    const year = date.getFullYear();
+function updateYear() {
+    const date = new Date(); 
+
+    let day = date.getUTCDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
     display2.innerText = `${month} / ${day} / ${year}`
+    
+    if (month < 10){
+        month = "0" + month;
+    }
 }
 
 setInterval(updateYear)
-*/
+
 
 function setAlarmTime(value) {
     alarmTime = value;
@@ -54,7 +58,7 @@ function setAlarm() {
     if (alarmTime) {
         const current = new Date();
         const timeToAlarm = new Date(alarmTime);
-        //this makes sure the alarm must be after the current time before the alarm is set and sets the time before the audio will play
+
         if (timeToAlarm > current) {
             const timeout = timeToAlarm.getTime() - current.getTime();
             alarmTimeout = setTimeout(() => audio.play(), timeout);
@@ -62,8 +66,8 @@ function setAlarm() {
         }
     }
 }
-const audio = new Audio('../aud/GETUP!!!.mp3');
-audio.loop = true;
+const audio = new Audio('../aud/GETUP!!!.mp3');//this is where i link the audio so that it will play when the alarm goes off
+audio.loop = true;// this just makes the alarm loop until it is cleared
 
 
 // this gives the clear alarm button the ability to stop the alarm and reset the time of alarm or clear the alarm before it has gone off if it hasnt gone off
